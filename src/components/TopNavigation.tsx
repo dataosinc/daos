@@ -56,7 +56,10 @@ export default function TopNavigation({ currentView, onViewChange, onToggleAgent
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-1">
           <div className="flex items-center space-x-3 mr-8">
-            <img src="/IMG_2137.png" alt="DAOS" className="h-8" />
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">D</span>
+            </div>
+            <h1 className="text-xl font-bold text-gray-900">DAOS</h1>
           </div>
 
           <button

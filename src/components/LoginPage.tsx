@@ -68,11 +68,8 @@ export default function LoginPage({ onLogin, onBack, onSignUp, onForgotPassword 
         <div className="bg-white rounded-2xl shadow-xl p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">D</span>
-              </div>
-              <span className="text-2xl font-bold text-gray-900">DAOS</span>
+            <div className="flex items-center justify-center mb-4">
+              <img src="/IMG_2137.png" alt="DAOS" className="h-12" />
             </div>
             <h1 className="text-2xl font-bold text-gray-900 mb-2">Welcome back</h1>
             <p className="text-gray-600">Sign in to your account to continue</p>

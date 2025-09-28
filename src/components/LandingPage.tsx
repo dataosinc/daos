@@ -67,11 +67,8 @@ export default function LandingPage({ onGetStarted, onLogin }: LandingPageProps)
       <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">D</span>
-              </div>
-              <span className="text-xl font-bold text-gray-900">DAOS</span>
+            <div className="flex items-center">
+              <img src="/IMG_2137.png" alt="DAOS" className="h-8" />
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -100,12 +97,10 @@ export default function LandingPage({ onGetStarted, onLogin }: LandingPageProps)
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Complete Data
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Management</span>
-              <br />Platform
+              Complete Data Management Platform
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Connect, understand, and optimize your data with AI-powered automation. 
+              Connect, understand, and optimize your data with AI-powered automation.
               Get a 360° view of your data landscape and create golden datasets in minutes, not months.
             </p>
             
@@ -237,11 +232,8 @@ export default function LandingPage({ onGetStarted, onLogin }: LandingPageProps)
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">D</span>
-                </div>
-                <span className="text-xl font-bold">DAOS</span>
+              <div className="mb-4">
+                <img src="/IMG_2137.png" alt="DAOS" className="h-8" />
               </div>
               <p className="text-gray-400">
                 The complete data management platform for modern enterprises.

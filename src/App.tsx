@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import LandingPage from './components/LandingPage';
+import LoginPage from './components/LoginPage';
+import SignUpPage from './components/SignUpPage';
 import TopNavigation from './components/TopNavigation';
 import LeftRail from './components/LeftRail';
 import Playground from './components/Playground';
@@ -12,11 +15,70 @@ import LMSHub from './components/LMSHub';
 import ROIDashboard from './components/ROIDashboard';
 
 export type ViewType = 'playground' | 'logs' | 'agent-drawer' | 'agent-marketplace' | 'table-inspector' | 'metadata' | 'lms' | 'roi';
+export type AppState = 'landing' | 'login' | 'signup' | 'app';
 
 function App() {
+  const [appState, setAppState] = useState<AppState>('landing');
   const [currentView, setCurrentView] = useState<ViewType>('playground');
   const [isAgentDrawerOpen, setIsAgentDrawerOpen] = useState(false);
   const [selectedTable, setSelectedTable] = useState<string | null>(null);
+  const [user, setUser] = useState<any>(null);
+
+  const handleLogin = (email: string, password: string) => {
+    // In a real app, this would validate credentials with an API
+    setUser({ email, name: email.split('@')[0] });
+    setAppState('app');
+  };
+
+  const handleSignUp = (userData: any) => {
+    // In a real app, this would create the user account
+    setUser({ 
+      email: userData.email, 
+      name: `${userData.firstName} ${userData.lastName}`,
+      company: userData.company 
+    });
+    setAppState('app');
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    setAppState('landing');
+    setCurrentView('playground');
+  };
+
+  // Landing page flow
+  if (appState === 'landing') {
+    return (
+      <LandingPage
+        onGetStarted={() => setAppState('signup')}
+        onLogin={() => setAppState('login')}
+      />
+    );
+  }
+
+  if (appState === 'login') {
+    return (
+      <LoginPage
+        onLogin={handleLogin}
+        onBack={() => setAppState('landing')}
+        onSignUp={() => setAppState('signup')}
+        onForgotPassword={() => {
+          // Handle forgot password
+          console.log('Forgot password clicked');
+        }}
+      />
+    );
+  }
+
+  if (appState === 'signup') {
+    return (
+      <SignUpPage
+        onSignUp={handleSignUp}
+        onBack={() => setAppState('landing')}
+        onLogin={() => setAppState('login')}
+      />
+    );
+  }
 
   const renderMainContent = () => {
     switch (currentView) {
@@ -55,6 +117,8 @@ function App() {
         currentView={currentView}
         onViewChange={setCurrentView}
         onToggleAgentDrawer={() => setIsAgentDrawerOpen(!isAgentDrawerOpen)}
+        user={user}
+        onLogout={handleLogout}
       />
       
       <div className="flex flex-1 overflow-hidden">
